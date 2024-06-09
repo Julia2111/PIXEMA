@@ -1,0 +1,167 @@
+@import "../../components/styles/Mixins.module.scss";
+
+.wrapBody {
+  display: flex;
+  margin-left: 20px;
+}
+.img {
+  width: 85%;
+  // height: 357px;
+  border-radius: 10px;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+.titleFilm,
+a {
+  color: black;
+  text-decoration: none;
+  margin-top: 20px;
+  text-align: center;
+
+  &:hover {
+    color: rgb(173, 1, 225);
+    cursor: pointer;
+  }
+  &:checked {
+    color: red;
+  }
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: center;
+  padding-top: 12px;
+}
+.post {
+  @include FlexColumn;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px 10px;
+
+  width: 270px;
+  height: 463px;
+  padding: 1px;
+
+  // top: 124px;
+  // left: 124px;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #ffffff;
+    transition: 0.3s;
+    transform: translateY(3%);
+    box-shadow: 0 0 20px #a100e1;
+    border-radius: 0px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.genre {
+  color: rgb(196, 196, 196);
+  font-size: 12px;
+  margin-top: 2%;
+}
+.rating {
+  border-radius: 6px;
+  background: rgba(0, 163, 64, 1);
+  width: 37px;
+  height: 28px;
+  @include FlexRow;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  color: white;
+  position: absolute;
+  margin-top: 20px;
+}
+.high {
+  background: rgba(0, 163, 64, 1);
+}
+
+.little {
+  background: rgb(182, 6, 0);
+}
+.post h3,
+.post p,
+.post h2 {
+  margin-bottom: 15px;
+}
+.info {
+  @include FlexColumn;
+  justify-content: flex-start;
+  align-items: center;
+}
+.thumb {
+  margin: 0 10px;
+  cursor: pointer;
+  &:hover {
+    fill: blue;
+  }
+}
+.footer.dark .thumb {
+  fill: white;
+}
+.like {
+  background-color: transparent;
+  border: 0;
+}
+.post.dark p,
+.post.dark h3 {
+  color: rgba(141, 142, 151, 1);
+}
+.post.dark h2 {
+  color: white;
+}
+.dark {
+  background-color: #000000;
+  border-bottom: 1px solid rgb(60, 60, 60);
+}
+.light {
+  background-color: rgb(255, 255, 255);
+}
+
+.showMore {
+  @include FlexRow;
+  justify-content: center;
+  align-items: center;
+  width: 173px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0;
+  margin-top: 5%;
+  margin: 5% auto;
+  background: rgb(107, 0, 142);
+  color: rgba(255, 255, 255, 1);
+}
+.btnCenter {
+  margin: 0;
+}
+.loader {
+  border: 2.5px solid #f3f3f3;
+  border-top: 2.5px solid rgba(123, 97, 255, 1);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

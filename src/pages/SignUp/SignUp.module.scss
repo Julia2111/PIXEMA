@@ -1,0 +1,94 @@
+.wrapLogin {
+  // background: url(../../assets/backgroundLogin.svg), rgba(144, 142, 142, 0.3);
+  background: url(../../assets/Background.png), black;
+  width: 100%;
+  height: 1082px;
+  margin: 0;
+}
+
+.logoReg path:nth-last-child(-n + 3) {
+  fill: white;
+}
+
+.authPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 72px;
+  padding: 0 40px;
+  margin-left: 30%;
+  border: 1px solid rgba(218, 218, 218, 1);
+  border-radius: 10px;
+  background-color: white;
+  width: 624px;
+  height: 684px;
+}
+a {
+  cursor: pointer;
+  color: rgba(123, 97, 255, 1);
+  text-decoration: none;
+}
+.wrapTitle {
+  margin-left: 5%;
+  padding-top: 3%;
+}
+.notification {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  color: rgba(49, 48, 55, 1);
+}
+.authForm {
+  width: 624px;
+  height: 684px;
+  top: 364px;
+  left: 648px;
+  padding: 40px 0px 0px 0px;
+  background-color: rgba(243, 243, 243, 1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgb(125, 124, 124);
+}
+
+.submit {
+  width: 494px;
+  height: 56px;
+  padding: 16px 32px 16px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(123, 97, 255, 1);
+  margin-top: 56px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px transparent;
+}
+
+.dark label {
+  background-color: #23272f;
+  border-bottom: 1px solid rgb(60, 60, 60);
+  color: #ffffff;
+}
+// .dark,svg {
+//     path:nth-last-child(-n+3) {
+//       fill: white;
+//     }
+//   }
+
+.light {
+  background-color: white;
+}
+
+// .light,svg {
+//     path:nth-last-child(-n+3) {
+//       fill: black;
+//     }
+//   }

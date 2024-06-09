@@ -1,0 +1,100 @@
+@import "../../components/styles/Mixins.module.scss";
+
+.wrapBody {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 20px;
+
+  .container {
+    width: 75%;
+    @include FlexRow;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .infoPost {
+    width: 830px;
+    height: 550px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 3%;
+    border: 3px solid white;
+    border-radius: 10px;
+  }
+
+  .buttons {
+    width: 100%;
+    height: max-content;
+    @include FlexRow;
+    justify-content: space-around;
+    margin-top: 15px;
+
+    .button_favorite {
+      background-color: #000;
+      border: 1px solid #fff;
+      width: 90px;
+      height: 30px;
+      display: flex;
+      @include FlexRow;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+      &:hover {
+        background-color: red;
+        border-color: red;
+        transform: translateY(3%);
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+  }
+
+  .bgImg {
+    width: 300px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(90% - 30px);
+    border-radius: 10px;
+  }
+
+  .postImg {
+    height: 100%;
+    @include FlexColumn;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+
+  .postText {
+    margin-left: 4%;
+  }
+
+  .wrapInfo {
+    font-size: 16px;
+    font-weight: 500;
+    @include FlexRow;
+    justify-content: space-between;
+    align-items: center;
+    .infoName {
+      font-weight: bold;
+      color: red;
+    }
+  }
+
+  .infoValue {
+    margin-left: 5%;
+  }
+
+  .carousel_body {
+    height: max-content;
+    @include FlexRow;
+    gap: 30px;
+  }
+}

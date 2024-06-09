@@ -1,0 +1,10 @@
+body {
+  width: 90%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+
+  .blocks {
+    background-color: aqua;
+  }
+}

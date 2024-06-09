@@ -1,0 +1,82 @@
+.navbar {
+  height: 95vh;
+  width: 236px;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 236px;
+    height: 83px;
+    bottom: 0;
+
+    &__btnTheme {
+      width: max-content;
+      height: max-content;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 0px;
+      margin-right: 20px;
+      background: none;
+    }
+  }
+}
+.active {
+  color: rgb(175, 0, 175);
+}
+.dark {
+  background-color: #000000;
+
+  color: #ffffff;
+}
+.light {
+  background-color: white;
+}
+
+li {
+  width: 236px;
+  height: 83px;
+  background-color: #ffffff;
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+}
+
+.buttonBar {
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  margin-left: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: rgba(128, 133, 139, 1);
+
+  &:hover {
+    color: rgba(123, 97, 255, 1);
+  }
+}
+
+.IconMenu {
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+
+  &__auth {
+    margin-right: 15px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .IconMenu path {
+    fill: rgba(128, 133, 139, 1);
+    color: rgba(128, 133, 139, 1);
+  }
+}
+
+.buttonBar .IconMenu path:hover {
+  fill: rgba(123, 97, 255, 1);
+  color: rgba(123, 97, 255, 1);
+}
