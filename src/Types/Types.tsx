@@ -20,6 +20,12 @@ export interface TodoItemTypes {
   title: string;
   completed: boolean;
 }
+export interface FetchPost {
+  title: string;
+  type: string;
+  year: number;
+}
+
 export interface ICard {
   id: number;
   Title: string;
@@ -38,6 +44,41 @@ export interface ActivateUser {
 }
 
 export interface Movie {
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
+  Actors: string;
+  Released: string;
+  BoxOffice: string;
+  Country: string;
+  Production: string;
+  Director: string;
+  Writer: string;
+  Genre: string;
+  imdbRating: string;
+  Runtime: string;
+  Plot: string;
+}
+export interface Genre {
+  value: string;
+  label: string;
+}
+
+export interface Genres {
+  genres: Array<Genre>;
+}
+
+export interface GenreResponse {
+  id: number;
+  name: string;
+}
+
+export interface GenresResponse {
+  genres: Array<GenreResponse>;
+}
+export interface MovieDetails {
   Title: string;
   Year: string;
   imdbID: string;
@@ -46,17 +87,14 @@ export interface Movie {
   Genre: string;
   imdbRating: string;
 }
-
-export interface MovieDetails {
-  imdbRating: string;
-  Genre: string;
-}
 export interface MoviesStorage {
   movies: Movie[];
   moviesDetails: MovieDetails[];
   page: number;
   total: number;
+  genres: Array<GenreResponse>;
 }
+
 //Сортировка
 export enum SortPropertyEnum {
   RATING_DESC = "rating",
@@ -93,4 +131,29 @@ export interface SliderProps {
   appendDots?: (dots: React.ReactNode) => React.ReactNode;
   beforeChange?: (oldIndex: number, newIndex: number) => void;
   customPaging?: (slideIndex: number) => React.ReactNode;
+}
+
+export interface Genre {
+  value: string;
+  label: string;
+}
+
+export interface Genres {
+  genres: Array<Genre>;
+}
+
+export interface GenreResponse {
+  id: number;
+  name: string;
+}
+
+export interface GenresResponse {
+  genres: Array<GenreResponse>;
+}
+
+export interface MoviesResponse {
+  page: number;
+  results: Array<Movie>;
+  total_pages: number;
+  total_results: number;
 }

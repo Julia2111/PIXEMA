@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-const API_URL = "https://www.omdbapi.com/?apikey=7a6495f0&s=/";
+const API_URL = "https://www.omdbapi.com/?apikey=7a6495f0";
+import { FetchPost } from "../Types/Types";
 export const fetchPosts = createAsyncThunk(
   "pagination/fetchPosts",
-  async ({ limit, offset, search, ordering }) => {
+  async ({ title, type, year }: FetchPost) => {
     const response = await fetch(
-      `${API_URL}?author__course_group=7&limit=${limit}&offset=${offset}&search=${search}&ordering=${ordering}`
+      `${API_URL}&s=${title}&type=${type}&y=${year}`
     );
     const data = await response.json();
     return data;
@@ -14,7 +15,7 @@ const paginationSlice = createSlice({
   name: "pagination",
   initialState: {
     post: [],
-    currentPage: 1,
+    currentPage: 0,
     itemsPerPage: 10,
     totalCount: 0,
     status: "",
@@ -24,7 +25,7 @@ const paginationSlice = createSlice({
   },
   reducers: {
     changeCurrentPage: (state, action) => {
-      state.currentPage = action.payload;
+      state.currentPage = 0;
     },
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;

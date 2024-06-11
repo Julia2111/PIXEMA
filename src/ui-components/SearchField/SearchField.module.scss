@@ -1,15 +1,16 @@
 .input {
-    margin-left: 10px;
-    margin-right: 15px;
-    width: 75%;
-    height: 56px;
-    border-radius: 10px;
-    border: 2px solid rgba(175, 178, 182, 1);
-    cursor: pointer;
-}
-.input:focus-visible {
+  margin-left: 10px;
+  margin-right: 15px;
+  width: 75%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid rgb(152, 152, 152);
+  cursor: pointer;
+  padding-left: 20px;
+
+  &:focus-visible {
     border: 0;
-    padding-block: 0;
-    padding-inline: 0;
-    border-image-width: 0;  
+
+    border-image-width: 0;
+  }
 }

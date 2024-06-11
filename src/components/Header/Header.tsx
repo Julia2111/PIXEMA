@@ -8,7 +8,7 @@ const Header = () => {
     <div className={styles.header}>
       <Burger />
       <SearchField />
-      <Personal userName={"Julia Khasenevich"} />
+      <Personal />
     </div>
   );
 };

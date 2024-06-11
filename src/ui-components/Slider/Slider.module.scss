@@ -1,10 +1,9 @@
-body {
-  width: 90%;
-  height: 400px;
-  display: flex;
-  flex-direction: row;
+.swiper_slide {
+  width: 80%;
 
-  .blocks {
-    background-color: aqua;
+  &:hover {
+    transition: 0.3s;
+    transform: translateY(3%);
+    box-shadow: 40px 30px 60px #a100e1;
   }
 }

@@ -14,6 +14,7 @@ import Favorite from "./pages/Favorite/Favorite";
 import { SearchContext } from "./Context/SearchContext";
 import Confirmation from "./pages/Confirmation/Confirmation";
 import Activation from "./pages/Activation/Activation";
+import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -45,6 +46,8 @@ function App() {
                 <Route path="*" element={<NotFound />} />
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="activate/:uid/:token" element={<Activation />} />
+                <Route path="signin" element={<SignIn />} />
+                <Route path="signup" element={<SignUp />} />
               </Route>
             </Routes>
           </div>

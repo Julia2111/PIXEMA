@@ -2,16 +2,22 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth";
 import favoritesSlice from "./favoriteSlice";
 import paginationSlice from "./paginationSlice";
+import MoviesSlice from "./MoviesSlice";
+import trendsSlice from "./trendsSlice";
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    authReducer: authReducer,
+    auth: authReducer,
+    movies: MoviesSlice,
     favorites: favoritesSlice,
     pagination: paginationSlice,
+    trends: trendsSlice,
+    // ratingModal: ratingModalReducer,
   },
 });
 
-export type AppStore = ReturnType<typeof configureStore>;
+export default store;
 
-export type RootState = ReturnType<AppStore["getState"]>;
-export type AppDispatch = AppStore["dispatch"];
+export type AppStore = typeof store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -21,7 +21,14 @@ const SearchField = () => {
     search.setSearchString(searchString);
   };
 
-  return <input className={styles.input} value={string} onChange={onChange} />;
+  return (
+    <input
+      className={styles.input}
+      value={string}
+      placeholder="Search movie"
+      onChange={onChange}
+    />
+  );
 };
 
 export default SearchField;

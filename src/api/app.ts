@@ -1,14 +1,14 @@
 export const APP_ROUTES = {
   HOME: "/",
-  MOVIES: "/movies",
+  MOVIES: "/posts",
   RATED: "/rated",
 } as const;
-
-export const API_SORT_OPTIONS = {
-  TITLE: "&t",
-  YEAR: "&y",
-  TYPE: "$type",
-  LOGOS: "/logos",
+export const API_BASE_URL = "/api";
+export const API_ROUTES = {
+  MOVIES: "/posts",
+  GENRE: "/genres",
+  IMAGES: "/images",
+  LOGO: "/genre",
 } as const;
 
 export const MAX_RATING = 10;

@@ -12,6 +12,7 @@
 //     slidesToShow: 3,
 //     slidesToScroll: 1,
 //   };
+
 // const posts: <Movies>[] =[];
 //   return (
 //     <Slider {...settings}>

@@ -19,7 +19,7 @@
     align-items: flex-start;
     justify-content: center;
     margin-left: 3%;
-    border: 3px solid white;
+    border: 1px solid rgb(115, 115, 115);
     border-radius: 10px;
   }
 
@@ -82,6 +82,7 @@
     @include FlexRow;
     justify-content: space-between;
     align-items: center;
+
     .infoName {
       font-weight: bold;
       color: red;

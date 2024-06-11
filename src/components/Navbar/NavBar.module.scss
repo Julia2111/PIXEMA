@@ -18,6 +18,12 @@
       border: 0px;
       margin-right: 20px;
       background: none;
+      color: rgb(83, 0, 110);
+      font-size: 15px;
+    }
+    &__btnTheme:hover {
+      transform: translateY(3%);
+      box-shadow: 0 0 20px #a100e1;
     }
   }
 }
@@ -37,7 +43,7 @@ li {
   width: 236px;
   height: 83px;
   background-color: #ffffff;
-  color: black;
+  color: rgb(107, 107, 107);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -52,7 +58,7 @@ li {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  color: rgba(128, 133, 139, 1);
+  color: rgb(255, 255, 255);
 
   &:hover {
     color: rgba(123, 97, 255, 1);
@@ -70,9 +76,13 @@ li {
     height: 22px;
   }
 
-  .IconMenu path {
+  & path {
     fill: rgba(128, 133, 139, 1);
     color: rgba(128, 133, 139, 1);
+  }
+
+  & a {
+    color: wheat;
   }
 }
 

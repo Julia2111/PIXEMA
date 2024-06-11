@@ -5,15 +5,16 @@ import { useDispatch } from "react-redux";
 import NavBar from "../../components/Navbar/NavBar";
 import styles from "./Post.module.scss";
 import noPosterImage from "../../assets/picForPosts/noPic.png";
-
+import { API_BASE_URL, apiService } from "../../api/api";
 import { Movie } from "../../Types/Types";
 import { initialPostState } from "../../HOC/initialStates";
 import { API_ENDPOINTS } from "../../api/api";
-// import SlickCarousel from "../../components/ui-components/SlickCarousel/SlickCarousel";
+import SlickCarousel from "../../components/ui-components/SlickCarousel/SlickCarousel";
 const Post = () => {
   const { imdbID } = useParams();
 
   const [post, setPost] = useState({
+    //init post
     Title: "",
     Poster: "",
     Genre: "",
@@ -27,12 +28,13 @@ const Post = () => {
     Director: "",
     Writer: "",
   });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`${API_ENDPOINTS.IMDB}${imdbID}`)
-      .then((responce) => responce.json())
+    fetch(`${API_BASE_URL}&i=${imdbID}`)
+      .then((response) => response.json())
       .then((data) => {
         if (data.Response === "True") {
           setPost(data);
@@ -55,6 +57,10 @@ const Post = () => {
       });
   }, [imdbID]);
 
+  // const fetchPosts = async () => {
+  //   const recomendedPosts = apiService
+  // }
+
   const {
     Title,
     Poster,
@@ -69,7 +75,6 @@ const Post = () => {
     Director,
     Writer,
   } = post;
-  console.log(post);
 
   return (
     <>
