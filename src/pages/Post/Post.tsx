@@ -9,13 +9,18 @@ import { API_BASE_URL } from "../../api/api";
 import ModalUrl from "../../ui-components/ModalUrl/ModalUrl";
 import { RootState } from "../../store";
 import { ReactComponent as Share } from "../../assets/Icons/SHARe.svg";
+import { ICard } from "../../Types/Types";
 
 const Post = () => {
+  const { favoritePosts } = useSelector(
+    (state) => state as { favorites: { favoritePosts: ICard[] } }
+  ).favorites;
+
   const { imdbID } = useParams();
   const [isModalOpen, setModalOpen] = useState(false);
-  const favoritePosts = useSelector(
-    (state: RootState) => state.favorites.favoritePosts
-  );
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [post, setPost] = useState({
     id: "",
@@ -33,8 +38,14 @@ const Post = () => {
     Writer: "",
   });
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const addPostToFavorites = () => {
+    const postExists = favoritePosts.some(
+      (favPost: { id: string }) => favPost.id === post.id
+    );
+    if (!postExists) {
+      dispatch(addFavoritePost(post));
+    }
+  };
 
   useEffect(() => {
     fetch(`${API_BASE_URL}&i=${imdbID}`)
@@ -115,7 +126,7 @@ const Post = () => {
                   <button onClick={() => navigate(-1)}>Go back</button>
                   <button
                     className={styles.button_favorite}
-                    onClick={() => dispatch(addFavoritePost({ post }))}
+                    onClick={addPostToFavorites}
                   >
                     + MY LIST
                   </button>
@@ -126,7 +137,7 @@ const Post = () => {
                     isOpen={isModalOpen}
                     close={() => setModalOpen(false)}
                   >
-                    Ссылка скопирована в буфер обмена!
+                    Ссылка скопирована! Можете поделиться фильмом
                   </ModalUrl>
                 </div>
               </div>
