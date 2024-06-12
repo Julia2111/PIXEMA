@@ -1,0 +1,74 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./background.png), rgba(0, 0, 0, 1);
+}
+
+.logo {
+  margin-top: 43px;
+  align-self: flex-start;
+}
+
+.sign-up {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up__container {
+  width: 31.89%;
+  background: #242426;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 45px;
+}
+
+.sign-up__wrapper {
+  width: 86.1%;
+}
+
+.sign-up__title {
+  color: #ffffff;
+  font-family: "Exo 2", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: left;
+  margin: 40px 0;
+}
+
+.sign-up__question {
+  color: #80858b;
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 40px 0;
+}
+
+.sign-up__link {
+  color: #7b61ff;
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  background: none;
+  margin: 0;
+  padding: 0 0 0 5px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    color: #917cff;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.sign-up__patent {
+  color: #ffffff;
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  margin-top: 50px;
+}

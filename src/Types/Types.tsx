@@ -27,7 +27,7 @@ export interface FetchPost {
 }
 
 export interface ICard {
-  id: number;
+  id: string;
   Title: string;
   Poster: string;
   Genre: string;
@@ -64,6 +64,12 @@ export interface Movie {
 export interface Genre {
   value: string;
   label: string;
+}
+
+export interface ModalUrl {
+  isOpen: boolean;
+  close: () => void;
+  children: React.ReactNode;
 }
 
 export interface Genres {

@@ -1,24 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICard } from "../Types/Types";
+
+interface FavoritesState {
+  favoritePosts: ICard[];
+}
+
+const initialState: FavoritesState = {
+  favoritePosts: [],
+};
 
 const favoritesSlice = createSlice({
   name: "favorite",
-  initialState: {
-    favoritePosts: [] as ICard[],
-  },
+  initialState,
   reducers: {
-    addFavoritePost(
-      state: { favoritePosts: ICard[] },
-      action: {
-        payload: { post: ICard };
-        type: string;
+    addFavoritePost(state, action: PayloadAction<ICard>) {
+      const existingPost = state.favoritePosts.find(
+        (post) => post.id === action.payload.id
+      );
+      if (!existingPost) {
+        state.favoritePosts.push(action.payload);
       }
-    ) {
-      const uniquePosts = new Set([
-        ...state.favoritePosts,
-        action.payload.post,
-      ]);
-      state.favoritePosts = [...uniquePosts];
     },
   },
 });

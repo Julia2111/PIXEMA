@@ -48,13 +48,11 @@ export const activateUser = createAsyncThunk(
         }
       );
 
-      // console.log("activateObj",activateObj)
       if (!responce.ok) {
         throw new Error("Error is here  ):");
       }
       const data = await responce.json();
       console.log(data);
-      //    dispatch(addUser(data))
     } catch (error) {
       return rejectWithValue((error as Error).message);
     }
@@ -88,65 +86,11 @@ export const getUser = createAsyncThunk(
     }
   }
 );
-export const refreshToken = createAsyncThunk(
-  "user/refreshToken",
-  async (_, { rejectWithValue }) => {
-    try {
-      const { refresh } = JSON.parse(localStorage.getItem("Login"));
-      const responce = await fetch(
-        "https://studapi.teachmeskills.by/auth/jwt/refresh/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ refresh: refresh }),
-        }
-      );
-      const data = await responce.json();
 
-      localStorage.setItem(
-        "Login",
-        JSON.stringify({ refresh: refresh, access: data.access })
-      );
-    } catch (error) {
-      return rejectWithValue((error as Error).message);
-    }
-  }
-);
-export const getUserInfo = createAsyncThunk(
-  "user/getUserInfo",
-  async (_, { rejectWithValue, dispatch }) => {
-    try {
-      const { access } = JSON.parse(localStorage.getItem("Login"));
-
-      const responce = await fetch(
-        "https://studapi.teachmeskills.by/auth/users/me/",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + access,
-          },
-        }
-      );
-      if (responce.status === 401) {
-        dispatch(refreshToken());
-      }
-      if (!responce.ok) {
-        throw new Error("MY ERROR");
-      }
-      const data = await responce.json();
-      dispatch(addUser(data));
-    } catch (error) {
-      return rejectWithValue((error as Error).message);
-    }
-  }
-);
-const favoritesSlice = createSlice({
-  name: "user",
+const userSlice = createSlice({
+  name: "userSlice",
   initialState: {
-    user: { username: "somthing" },
+    user: { username: "Your Name" },
     tokenStatus: false,
   },
   reducers: {
@@ -154,11 +98,7 @@ const favoritesSlice = createSlice({
       state.user = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(getUserInfo.rejected, (state, action) => {
-      console.log(action);
-    });
-  },
 });
-export const { addUser } = favoritesSlice.actions;
-export default favoritesSlice.reducer;
+
+export const { addUser } = userSlice.actions;
+export default userSlice.reducer;

@@ -13,6 +13,7 @@ const NavItem = ({
   label: string;
 }) => {
   const { theme } = useContext(ThemeContext);
+
   const MyClassName = ({ isActive }) =>
     isActive ? `${styles.active}` : `${styles.nonActive}`;
 

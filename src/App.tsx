@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout";
 import NotFound from "./pages/NotFound/NotFound";
 import Posts from "./pages/Posts/Posts";
-import SignUp from "./pages/SignUp/SignUp";
+// import SignUp from "./pages/SignUp/SignUp";
 import Post from "./pages/Post/Post";
 import Profile from "./pages/Profile/Profile";
 import { ThemeContext } from "./Context/Context";
@@ -25,7 +25,7 @@ function App() {
         <SearchContext.Provider value={{ searchString, setSearchString }}>
           <div className={`${theme === "dark" ? styles.dark : styles.light}`}>
             <Routes>
-              <Route path="sign-up" element={<SignUp />} />
+              {/* <Route path="sign-up" element={<SignUp />} /> */}
 
               <Route path="/" element={<Layout />}>
                 <Route path="about" element={<About />} />
@@ -46,8 +46,8 @@ function App() {
                 <Route path="*" element={<NotFound />} />
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="activate/:uid/:token" element={<Activation />} />
-                <Route path="signin" element={<SignIn />} />
-                <Route path="signup" element={<SignUp />} />
+                {/* <Route path="signin" element={<SignIn />} />
+                <Route path="signup" element={<SignUp />} /> */}
               </Route>
             </Routes>
           </div>

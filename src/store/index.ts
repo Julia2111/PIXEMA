@@ -2,17 +2,16 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth";
 import favoritesSlice from "./favoriteSlice";
 import paginationSlice from "./paginationSlice";
-import MoviesSlice from "./MoviesSlice";
+import moviesSlice from "./MoviesSlice";
 import trendsSlice from "./trendsSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    movies: MoviesSlice,
+    movies: moviesSlice,
     favorites: favoritesSlice,
     pagination: paginationSlice,
     trends: trendsSlice,
-    // ratingModal: ratingModalReducer,
   },
 });
 

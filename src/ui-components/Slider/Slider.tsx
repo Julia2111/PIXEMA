@@ -62,23 +62,33 @@ const SwiperComponent = () => {
       }}
     >
       <SwiperSlide>
-        <img src={Poster1} alt="Im1" className={styles.swiper_slide} />
+        <a href="https://www.youtube.com/watch?v=CM79GTEm2ps">
+          <img src={Poster1} alt="Im1" className={styles.swiper_slide} />
+        </a>
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src={Poster2} alt="Im2" className={styles.swiper_slide} />
+        <a href="https://www.youtube.com/watch?v=X7rIn8j65K8">
+          <img src={Poster2} alt="Im2" className={styles.swiper_slide} />
+        </a>
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src={Poster3} alt="Im3" className={styles.swiper_slide} />
+        <a href="https://www.youtube.com/watch?v=LleIdNVuUZE">
+          <img src={Poster3} alt="Im3" className={styles.swiper_slide} />
+        </a>
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src={Poster4} alt="Im4" className={styles.swiper_slide} />
+        <a href="https://www.youtube.com/watch?v=6ZfuNTqbHE8">
+          <img src={Poster4} alt="Im4" className={styles.swiper_slide} />
+        </a>
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src={Poster5} alt="Im5" className={styles.swiper_slide} />
+        <a href="https://www.youtube.com/watch?v=ghblKpFed_c">
+          <img src={Poster5} alt="Im5" className={styles.swiper_slide} />
+        </a>
       </SwiperSlide>
     </Swiper>
   );

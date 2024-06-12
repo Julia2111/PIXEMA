@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addFavoritePost } from "../../store/favoriteSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../../components/Navbar/NavBar";
 import styles from "./Post.module.scss";
 import noPosterImage from "../../assets/picForPosts/noPic.png";
 import { API_BASE_URL, apiService } from "../../api/api";
 import { Movie } from "../../Types/Types";
-import { initialPostState } from "../../HOC/initialStates";
-import { API_ENDPOINTS } from "../../api/api";
-import SlickCarousel from "../../components/ui-components/SlickCarousel/SlickCarousel";
+import ModalUrl from "../../ui-components/ModalUrl/ModalUrl";
+import { RootState } from "../../store";
+
 const Post = () => {
   const { imdbID } = useParams();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const favoritePosts = useSelector(
+    (state: RootState) => state.favorites.favoritePosts
+  );
 
   const [post, setPost] = useState({
-    //init post
+    id: "",
     Title: "",
     Poster: "",
     Genre: "",
@@ -34,12 +38,18 @@ const Post = () => {
 
   useEffect(() => {
     fetch(`${API_BASE_URL}&i=${imdbID}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         if (data.Response === "True") {
           setPost(data);
         } else {
           setPost({
+            id: "",
             Title: "",
             Poster: "",
             Genre: "",
@@ -54,6 +64,9 @@ const Post = () => {
             Writer: "",
           });
         }
+      })
+      .catch((error) => {
+        console.error("Ошибка fetch:", error);
       });
   }, [imdbID]);
 
@@ -76,6 +89,26 @@ const Post = () => {
     Writer,
   } = post;
 
+  const sharePost = () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(
+      () => {
+        setModalOpen(true);
+      },
+      (err) => {
+        console.error("Не удалось скопировать ссылку: ", err);
+      }
+    );
+  };
+
+  const addToFavorites = () => {
+    const isAlreadyFavorite = favoritePosts.some(
+      (favPost) => favPost.id === post.id
+    );
+    if (!isAlreadyFavorite) {
+      dispatch(addFavoritePost(post));
+    }
+  };
   return (
     <>
       <div>
@@ -94,12 +127,17 @@ const Post = () => {
                   <button onClick={() => navigate(-1)}>Go back</button>
                   <button
                     className={styles.button_favorite}
-                    onClick={() => {
-                      dispatch(addFavoritePost({ post }));
-                    }}
+                    onClick={addToFavorites}
                   >
                     + MY LIST
                   </button>
+                  <button onClick={sharePost}>SHARE</button>
+                  <ModalUrl
+                    isOpen={isModalOpen}
+                    close={() => setModalOpen(false)}
+                  >
+                    Ссылка скопирована в буфер обмена!
+                  </ModalUrl>
                 </div>
               </div>
               <div className={styles.postText}>
