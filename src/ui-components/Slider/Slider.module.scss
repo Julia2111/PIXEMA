@@ -1,0 +1,9 @@
+.swiper_slide {
+  width: 80%;
+
+  &:hover {
+    transition: 0.3s;
+    transform: translateY(3%);
+    box-shadow: 40px 30px 60px #a100e1;
+  }
+}

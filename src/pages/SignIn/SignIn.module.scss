@@ -1,0 +1,26 @@
+@import "../../components/styles/Mixins.module.scss";
+
+.form_body {
+  @include FlexColumn;
+  width: 574px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #242426;
+  border-radius: 10px;
+
+  .sign_title {
+    margin-bottom: 40px;
+  }
+
+  .forgot_pasw {
+    color: #80858b;
+  }
+  .signIn_btn {
+    width: 100%;
+    margin: 40px 0 32px;
+    background-color: #7b61ff;
+  }
+  .signIn_link {
+    text-align: center;
+  }
+}

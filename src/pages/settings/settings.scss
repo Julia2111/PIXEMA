@@ -1,0 +1,142 @@
+*{
+    box-sizing: border-box;
+}
+
+.settings{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+
+.settings-container{
+    width: 82.78%;
+}
+
+.settings-section{
+    margin-top: 40px;
+    &:first-child{
+        margin-top: 0;
+    }
+}
+
+.settings-section__title{
+    color: #FFFF;
+    font-family: "Exo 2", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.settings-section__title.white{
+    color: black;
+}
+
+.settings-container__inp-container{
+    width: 92.83%;
+    display: flex;
+    background: #242426;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 40px;
+}
+
+.settings-container__inp-container.white{
+    background: white;
+    border: 1px solid black;
+}
+
+.settings-container__color-container{
+    width: 92.83%;
+    display: flex;
+    justify-content: space-between;
+    background: #242426;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.settings-container__color-container.white{
+    background: white;
+    border: 1px solid black;
+}
+
+.settings-container__color-text{
+    padding: 25px 40px;
+}
+
+.settings-container__text-item{
+    color: #AFB2B6;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    &.title{
+        color: #FFFF;
+        font-weight: 700;
+    }
+}
+
+.settings-container__text-item.title.white{
+    color: black;
+}
+
+.settings-container__color-btn{
+    width: 5%;
+    height: 30px;
+    margin: 33px 40px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    &:hover{
+        cursor: pointer;
+        transition: 0.4s all;
+        background: #7B61FF;
+    }
+}
+
+.settings-container__color-btn.white{
+    border: 1px solid black;
+    &:hover{
+        color: white;
+    }
+}
+
+.settings-btn__section{
+    width: 92.83%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.settings-btn{
+    width: 24.1%;
+    padding: 15px 105px;
+    border: none;
+    border-radius: 10px;
+    color: #FFFF;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    background: #323537;
+    &.gray{
+        background: #323537;
+        &:hover{
+            background: #7B61FF;
+            color: #323537;
+        }
+    }
+    &.purple{
+        background: #7B61FF;
+        margin-left: 40px;
+        &:hover{
+            background: #323537;
+            color: #7B61FF;
+        }
+    }
+    &:hover{
+        cursor: pointer;
+        transition: 0.4s all;
+    }
+}
