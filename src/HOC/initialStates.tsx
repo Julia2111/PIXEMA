@@ -1,4 +1,3 @@
-// Файл usePost.js
 export const initialPostState = {
   id: "",
   Title: "",

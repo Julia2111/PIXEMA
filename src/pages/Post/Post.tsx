@@ -14,14 +14,11 @@ import { sharePost } from "../../api/app";
 import { initialPostState } from "../../HOC/initialStates";
 
 const Post = () => {
-  const { favoritePosts } = useSelector(
-    (state) => state as { favorites: { favoritePosts: ICard[] } }
-  ).favorites;
-
   const { imdbID } = useParams();
   const [isModalOpen, setModalOpen] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [post, setPost] = useState(initialPostState);
 
@@ -95,7 +92,7 @@ const Post = () => {
                   </button>
                   <button
                     className={styles.button_favorite}
-                    onClick={() => addFavoritePost(post)}
+                    onClick={() => dispatch(addFavoritePost(post))}
                   >
                     + MY LIST
                   </button>

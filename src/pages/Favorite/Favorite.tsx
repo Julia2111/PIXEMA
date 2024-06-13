@@ -19,7 +19,7 @@ const Favorite = () => {
 
   const favPostWrap = favoritePosts.map(({ id, Title, Poster, Genre }) => {
     return (
-      <div key={id}>
+      <div key={id} className={styles.body_card}>
         <button onClick={() => navigate(-1)} className={styles.btn_back}>
           <ArrowBack />
         </button>
