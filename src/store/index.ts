@@ -1,9 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./auth";
 import favoritesSlice from "./favoriteSlice";
 import paginationSlice from "./paginationSlice";
 import MoviesSlice from "./MoviesSlice";
-import trendsSlice from "./trendsSlice";
 import userSlice from "./userSlice";
 
 const store = configureStore({
@@ -12,7 +10,6 @@ const store = configureStore({
     movies: MoviesSlice,
     favorites: favoritesSlice,
     pagination: paginationSlice,
-    trends: trendsSlice,
   },
 });
 
