@@ -1,3 +1,4 @@
+// Файл usePost.js
 export const initialPostState = {
   id: "",
   Title: "",
@@ -13,18 +14,3 @@ export const initialPostState = {
   Director: "",
   Writer: "",
 };
-
-export const {
-  Title,
-  Poster,
-  Genre,
-  Plot,
-  Year,
-  Released,
-  BoxOffice,
-  Country,
-  Production,
-  Actors,
-  Director,
-  Writer,
-} = post;

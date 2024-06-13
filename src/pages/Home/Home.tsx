@@ -3,7 +3,6 @@ import { addNewTodo, fetchTodos } from "../../store/todoSlice";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import TodoList from "../../components/Todo/TodoList";
 import { useDispatch, useSelector } from "react-redux";
-import Slider from "react-slick";
 
 const Home = () => {
   const [input, setInput] = useState("");

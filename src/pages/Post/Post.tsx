@@ -11,6 +11,8 @@ import { ReactComponent as ArrowBack } from "../../assets/Icons/ArrowBack.svg";
 import { ReactComponent as Share } from "../../assets/Icons/SHARe.svg";
 import { ICard } from "../../Types/Types";
 import { sharePost } from "../../api/app";
+import { initialPostState } from "../../HOC/initialStates";
+
 const Post = () => {
   const { favoritePosts } = useSelector(
     (state) => state as { favorites: { favoritePosts: ICard[] } }
@@ -20,23 +22,8 @@ const Post = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const [post, setPost] = useState({
-    id: "",
-    Title: "",
-    Poster: "",
-    Genre: "",
-    Plot: "",
-    Year: "",
-    Released: "",
-    BoxOffice: "",
-    Country: "",
-    Production: "",
-    Actors: "",
-    Director: "",
-    Writer: "",
-  });
+  const [post, setPost] = useState(initialPostState);
 
   useEffect(() => {
     fetch(`${API_BASE_URL}&i=${imdbID}`)
@@ -50,21 +37,7 @@ const Post = () => {
         if (data.Response === "True") {
           setPost(data);
         } else {
-          setPost({
-            id: "",
-            Title: "",
-            Poster: "",
-            Genre: "",
-            Plot: "",
-            Year: "",
-            Released: "",
-            BoxOffice: "",
-            Country: "",
-            Production: "",
-            Actors: "",
-            Director: "",
-            Writer: "",
-          });
+          setPost(initialPostState);
         }
       })
       .catch((error) => {

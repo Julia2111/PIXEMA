@@ -48,6 +48,7 @@ const Posts = () => {
         <div className={styles.footer}></div>
       </div>
     ));
+
   return (
     <>
       <div className={styles.wrapBody}>

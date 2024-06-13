@@ -5,14 +5,9 @@ import { useNavigate } from "react-router-dom";
 import styles from "./PostItem.module.scss";
 
 export const PostItem = ({ imdbID, Poster, Title, Type }: Movie) => {
-  const navigate = useNavigate();
-
   return (
     <>
-      <div
-        className={styles.movie_container}
-        onClick={() => navigate(`/${imdbID}`)}
-      >
+      <div className={styles.movie_container}>
         <img className={styles.poster_item} src={Poster} alt="#" />
         <h2>{Title}</h2>
         <p className="movies-type">

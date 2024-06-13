@@ -5,7 +5,7 @@
 // import { signUpUser } from "../../store/userSlice";
 // import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 // import styles from "../SignIn/SignIn.module.scss";
-// import { initialPostState } from '../../HOC/initialStates';
+// import { initialPostState } from "../../HOC/initialStates";
 // const SignUp = () => {
 //   const [userSignUp, SetUserSignUp] = useState({
 //     username: "",
