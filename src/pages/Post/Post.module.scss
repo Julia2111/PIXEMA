@@ -48,6 +48,24 @@
         transition: transform 0.5s ease-in-out;
       }
     }
+
+    .btn_back {
+      background: none;
+      border: 0px;
+
+      &:hover {
+        transform: translateY(3%);
+        transition: transform 0.5s ease-in-out;
+        box-shadow: 0 20px 30px rgba(252, 72, 255, 0.2);
+      }
+    }
+
+    .btn_share {
+      width: 30px;
+      height: 30px;
+      border: 0px;
+      border-radius: 20px;
+    }
   }
 
   .bgImg {

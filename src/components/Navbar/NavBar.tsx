@@ -24,9 +24,9 @@ const NavBar = () => {
     >
       <ul>
         <NavItem to="/" icon={IconHome} label="Home" />
-        <NavItem to="/about" icon={IconTrends} label="Trends" />
+        <NavItem to="/trends" icon={IconTrends} label="Trends" />
         <NavItem to="/favorite" icon={IconFavorites} label="Favorites" />
-        <NavItem to="/posts" icon={IconSetting} label="Settings" />
+
         <NavItem to="/signin" icon={IconAuthorization} label="Sign In" />
       </ul>
       <div className={styles.themes_nav}>

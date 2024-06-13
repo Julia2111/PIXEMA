@@ -3,6 +3,7 @@ export const APP_ROUTES = {
   MOVIES: "/posts",
   RATED: "/rated",
 } as const;
+
 export const API_BASE_URL = "/api";
 export const API_ROUTES = {
   MOVIES: "/posts",

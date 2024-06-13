@@ -3,6 +3,7 @@
 .favorite_body {
   @include FlexRow;
   width: 95vw;
+  height: 60vw;
   align-items: center;
   justify-content: center;
   background: url("../../assets//Background.png");
@@ -17,17 +18,62 @@
 
   & h1 {
     width: 100%;
-    text-align: center;
+
     color: rgb(255, 255, 255);
 
     .link {
       font-size: 20px;
 
-      &:hover {
+      &:hover,
+      .title_favorite:hover {
         color: deeppink;
         // transform: translateY(10%);
         // transition: transform 1s ease-in-out;
       }
     }
+  }
+  .btn_back {
+    background: none;
+    border: 0px;
+
+    &:hover {
+      transform: translateY(3%);
+      transition: transform 0.5s ease-in-out;
+      box-shadow: 0 20px 30px rgba(252, 72, 255, 0.2);
+    }
+  }
+
+  .title_favorite:hover {
+    color: deeppink;
+    box-shadow: 0 20px 30px rgba(1, 1, 1, 0.2);
+    transform: translateY(-15%);
+    transition: transform 0.5s ease-in-out;
+  }
+  .btn_container {
+    @include FlexRow;
+    justify-content: center;
+    width: 100%;
+
+    .btn_delete {
+      border-radius: 20px;
+      width: 100px;
+      height: 35px;
+      border: 0px;
+      background-color: rgb(96, 0, 96);
+      color: white;
+      margin-top: 30px;
+
+      &:hover {
+        box-shadow: 10px 20px 30px rgba(255, 0, 212, 0.2);
+        transform: translateY(3%);
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+  }
+
+  .container_message {
+    width: max-content;
+    margin: 0px auto;
+    text-align: center;
   }
 }

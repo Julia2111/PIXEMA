@@ -1,22 +1,22 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Movie } from "../Types/Types";
-
+import { API_BASE_URL } from "../api/api";
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
   async (search, { rejectWithValue }) => {
     try {
-      const moviesArray = [];
+      const moviesList = [];
       let page = 1;
 
-      while (page <= 4) {
+      while (page <= 2) {
         const res = await fetch(
           `https://www.omdbapi.com/?apikey=ab5aa083&s=Barbie&page=${page}`
         );
         const movies = await res.json();
-        movies.Search.forEach((movie) => moviesArray.push(movie));
+        movies.Search.forEach((movie) => moviesList.push(movie));
         page++;
       }
-      return moviesArray;
+      return moviesList;
     } catch (error) {
       return rejectWithValue((error as Error).message);
     }

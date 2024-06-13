@@ -1,41 +1,59 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ICard } from "../../Types/Types";
 import styles from "./Favorite.module.scss";
-import NavBar from "../../components/Navbar/NavBar";
+import { ReactComponent as ArrowBack } from "../../assets/Icons/ArrowBack.svg";
+import { removeFavoritePost } from "../../store/favoriteSlice";
 
 const Favorite = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { favoritePosts } = useSelector(
     (state) => state as { favorites: { favoritePosts: ICard[] } }
   ).favorites;
 
-  const favPostWrap = favoritePosts.map(({ Title, Poster, Genre }) => {
-    return (
-      <div>
-        <button onClick={() => navigate(-1)}>Go back</button>
+  const handleDelete = (id: string) => {
+    dispatch(removeFavoritePost({ id }));
+  };
 
-        <h1>{Title}</h1>
+  const favPostWrap = favoritePosts.map(({ id, Title, Poster, Genre }) => {
+    return (
+      <div key={id}>
+        <button onClick={() => navigate(-1)} className={styles.btn_back}>
+          <ArrowBack />
+        </button>
+
+        <h1 className={styles.title_favorite}>{Title}</h1>
         <img src={Poster} />
         <p>{Genre}</p>
+        <div className={styles.btn_container}>
+          <button
+            onClick={() => handleDelete(id)}
+            className={styles.btn_delete}
+          >
+            DELETE CARD
+          </button>
+        </div>
       </div>
     );
   });
-  const navigate = useNavigate();
 
   return (
     <div className={styles.favorite_body}>
-      <NavBar />
       <div className={styles.favorite_body_inner}></div>
       {favoritePosts.length > 0 ? (
         favPostWrap
       ) : (
-        <h1>
-          No favorite posts yet!
-          <br />
-          <NavLink to="/" className={styles.link}>
-            Click to find movies!
-          </NavLink>
-        </h1>
+        <div className={styles.container_message}>
+          <h1>
+            No favorite posts yet!
+            <br />
+            <NavLink to="/" className={styles.link}>
+              Click to find movies!
+            </NavLink>
+          </h1>
+        </div>
       )}
     </div>
   );

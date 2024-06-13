@@ -7,10 +7,10 @@ import styles from "./Post.module.scss";
 import noPosterImage from "../../assets/picForPosts/noPic.png";
 import { API_BASE_URL } from "../../api/api";
 import ModalUrl from "../../ui-components/ModalUrl/ModalUrl";
-import { RootState } from "../../store";
+import { ReactComponent as ArrowBack } from "../../assets/Icons/ArrowBack.svg";
 import { ReactComponent as Share } from "../../assets/Icons/SHARe.svg";
 import { ICard } from "../../Types/Types";
-
+import { sharePost } from "../../api/app";
 const Post = () => {
   const { favoritePosts } = useSelector(
     (state) => state as { favorites: { favoritePosts: ICard[] } }
@@ -37,15 +37,6 @@ const Post = () => {
     Director: "",
     Writer: "",
   });
-
-  const addPostToFavorites = () => {
-    const postExists = favoritePosts.some(
-      (favPost: { id: string }) => favPost.id === post.id
-    );
-    if (!postExists) {
-      dispatch(addFavoritePost(post));
-    }
-  };
 
   useEffect(() => {
     fetch(`${API_BASE_URL}&i=${imdbID}`)
@@ -123,14 +114,19 @@ const Post = () => {
                   }}
                 ></div>
                 <div className={styles.buttons}>
-                  <button onClick={() => navigate(-1)}>Go back</button>
+                  <button
+                    onClick={() => navigate(-1)}
+                    className={styles.btn_back}
+                  >
+                    <ArrowBack />
+                  </button>
                   <button
                     className={styles.button_favorite}
-                    onClick={addPostToFavorites}
+                    onClick={() => addFavoritePost(post)}
                   >
                     + MY LIST
                   </button>
-                  <button onClick={sharePost}>
+                  <button onClick={sharePost} className={styles.btn_share}>
                     <Share />
                   </button>
                   <ModalUrl

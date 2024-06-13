@@ -4,24 +4,24 @@ export const fetchTrendsMovies = createAsyncThunk(
   "movies/fetchMovies",
   async (_, { rejectWithValue }) => {
     try {
-      const trendsMovies = [];
+      const trendsMoviesList = [];
 
       let page = 1;
-      while (page <= 3) {
+      while (page <= 2) {
         const res = await fetch(
-          `https://www.omdbapi.com/?apikey=ab5aa083&s=Barbie&page=${page}`
+          `https://www.omdbapi.com/?apikey=ab5aa083&s=Teen&page=${page}`
         );
         const movies = await res.json();
         movies.Search.filter((movie) => {
-          movie.imdbRating > "6,5"
-            ? trendsMovies.push(movie)
-            : console.log("Nothing to show");
+          movie.Year > "2008"
+            ? trendsMoviesList.push(movie)
+            : console.log("All this movies dont fit");
         });
         page++;
       }
-      return trendsMovies;
+      return trendsMoviesList;
     } catch (error) {
-      console.log("mistake here", error);
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -49,5 +49,5 @@ const trendsSlice = createSlice({
       });
   },
 });
-export const { TrendsMovies } = trendsSlice.actions;
+export const { addTrendsMovies } = trendsSlice.actions;
 export default trendsSlice.reducer;

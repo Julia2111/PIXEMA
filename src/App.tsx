@@ -7,7 +7,7 @@ import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Post/Post";
 import Profile from "./pages/Profile/Profile";
 import { ThemeContext } from "./Context/Context";
-import About from "./pages/About/About";
+import Trends from "./pages/Trends/Trends";
 import Auth from "./HOC/Auth";
 import Favorite from "./pages/Favorite/Favorite";
 import { SearchContext } from "./Context/SearchContext";
@@ -26,8 +26,8 @@ function App() {
           <div className={`${theme === "dark" ? styles.dark : styles.light}`}>
             <Routes>
               <Route path="/" element={<Layout />}>
-                <Route path="about" element={<About />} />
-                <Route path="about-us" element={<Navigate to="/about" />} />
+                <Route path="trends" element={<Trends />} />
+                <Route path="about-us" element={<Navigate to="/trends" />} />
 
                 <Route index element={<Posts />} />
                 <Route

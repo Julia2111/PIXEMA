@@ -71,6 +71,13 @@ export interface Genre {
   value: string;
   label: string;
 }
+export interface ISearchMovie {
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
+}
 
 export interface ModalUrl {
   isOpen: boolean;
