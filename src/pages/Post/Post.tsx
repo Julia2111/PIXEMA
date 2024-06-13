@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addFavoritePost } from "../../store/favoriteSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import NavBar from "../../components/Navbar/NavBar";
 import styles from "./Post.module.scss";
 import noPosterImage from "../../assets/picForPosts/noPic.png";
@@ -9,8 +9,6 @@ import { API_BASE_URL } from "../../api/api";
 import ModalUrl from "../../ui-components/ModalUrl/ModalUrl";
 import { ReactComponent as ArrowBack } from "../../assets/Icons/ArrowBack.svg";
 import { ReactComponent as Share } from "../../assets/Icons/SHARe.svg";
-import { ICard } from "../../Types/Types";
-import { sharePost } from "../../api/app";
 import { initialPostState } from "../../HOC/initialStates";
 
 const Post = () => {
@@ -140,7 +138,6 @@ const Post = () => {
           </div>
         </div>
       </div>
-      <div className={styles.carousel_body}>{/* <SlickCarousel /> */}</div>
     </>
   );
 };

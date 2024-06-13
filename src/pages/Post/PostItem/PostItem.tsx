@@ -7,7 +7,7 @@ import styles from "./PostItem.module.scss";
 export const PostItem = ({ imdbID, Poster, Title, Type }: Movie) => {
   return (
     <>
-      <div className={styles.movie_container}>
+      <div className={styles.movie_container} key={imdbID}>
         <img className={styles.poster_item} src={Poster} alt="#" />
         <h2>{Title}</h2>
         <p className="movies-type">
